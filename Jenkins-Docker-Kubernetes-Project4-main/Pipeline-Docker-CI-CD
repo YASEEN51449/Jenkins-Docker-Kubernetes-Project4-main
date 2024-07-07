@@ -10,7 +10,7 @@ node{
 	}
 	
 	stage('Build Docker Image'){
-		sh "docker build -t ameintu/docker-jenkins:${env.BUILD_ID} ."
+		sh "docker build -t mahammadyaseen/docker-jenkins:${env.BUILD_ID} ."
 	}
 
 	stage('Push Image to Docker Hub'){
