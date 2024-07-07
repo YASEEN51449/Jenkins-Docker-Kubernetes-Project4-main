@@ -15,13 +15,13 @@ node{
 
 	stage('Push Image to Docker Hub'){
 		withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
-			sh "docker login -u ameintu -p ${docker_hub}"
+			sh "docker login -u  mahammadyaseen -p ${docker_hub}"
 		}
-		sh "docker push ameintu/docker-jenkins:${env.BUILD_ID}"
+		sh "docker push mahammadyaseen/docker-jenkins:${env.BUILD_ID}"
 	}
 
 	stage('Run Container on AWS Server'){
-		def dockerRun = "docker run -d -p 8080:8080 --name myapp-${env.BUILD_ID} ameintu/docker-jenkins:${env.BUILD_ID}"
+		def dockerRun = "docker run -d -p 8080:8080 --name myapp-${env.BUILD_ID}  mahammadyaseen/docker-jenkins:${env.BUILD_ID}"
 		sshagent(['aws_instance']) {
 			sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.83 ${dockerRun}"
 		}
