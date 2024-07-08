@@ -21,7 +21,7 @@ node{
 	}
 	
 	stage('Push Image in ECR'){
-		ECRURL = 'https://339713155907.dkr.ecr.ap-south-1.amazonaws.com'
+		ECRURL = 'https://381492248436.dkr.ecr.us-east-1.amazonaws.com'
 		ECRRED = 'ecr:ap-south-1:awscredentials'
 		docker.withRegistry("${ECRURL}","${ECRRED}"){
 			docker.image("mahammadyaseen/docker-jenkins:${env.BUILD_ID}").push()
