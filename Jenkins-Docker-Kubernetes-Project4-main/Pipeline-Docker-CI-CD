@@ -1,6 +1,6 @@
 node{
 	stage('Git Checkout'){
-		git branch: 'master' credentialsId: 'git_credentials', url: 'https://github.com/YASEEN51449/Jenkins-Docker-Kubernetes-Project4-main.git'
+		git branch: 'main' credentialsId: 'git_credentials', url: 'https://github.com/YASEEN51449/Jenkins-Docker-Kubernetes-Project4-main.git'
 	}
 
 	stage('Maven Clean Package') {
