@@ -4,10 +4,12 @@ node{
 	}
 
 	stage('Maven Clean Package') {
+		dir('/var/lib/jenkins/workspace/aws-docker-project/Jenkins-Docker-Kubernetes-Project4-main') {
 		def mavenHome =  tool name: "Maven", type: "maven"
 		def mavenCMD = "${mavenHome}/bin/mvn"
 		sh "${mavenCMD} clean package"
 	}
+}
 	
 	stage('Build Docker Image'){
 		sh "docker build -t mahammadyaseen/docker-jenkins:${env.BUILD_ID} ."
